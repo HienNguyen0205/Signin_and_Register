@@ -25,18 +25,22 @@
             <div class="input_group">
                 <label class="modal_label" for="signUp_input-username">Tên đăng nhập</label>
                 <input type="text" id="signUp_input-username" class="modal_input" placeholder="Nhập tên đăng nhập">
+                <span class="form_message"></span>
             </div>
             <div class="input_group">
                 <label class="modal_label" for="signUp_input-email">Email</label>
                 <input type="email" id="signUp_input-email" class="modal_input" placeholder="Nhập email">
+                <span class="form_message"></span>
             </div>
             <div class="input_group">
                 <label class="modal_label" for="signUp_input-password1">Mật khẩu</label>
                 <input type="password" id="signUp_input-password1" class="modal_input" placeholder="Nhập mật khẩu">
+                <span class="form_message"></span>
             </div>
             <div class="input_group">
                 <label class="modal_label" for="signUp_input-password2">Xác nhận mật khẩu</label>
                 <input type="password" id="signUp_input-password2" class="modal_input" placeholder="Nhập lại mật khẩu">
+                <span class="form_message"></span>
             </div>
             <div class="input_checkbox">
                 <input type="checkbox" id="signUp_input-confirm">
@@ -56,10 +60,12 @@
             <div class="input_group">
                 <label class="modal_label" for="signIn_input-username">Tên đăng nhập</label>
                 <input type="text" id="signIn_input-username" class="modal_input" placeholder="Nhập tên đăng nhập">
+                <span class="form_message"></span>
             </div>
             <div class="input_group">
                 <label class="modal_label" for="signIn_input-password">Mật khẩu</label>
                 <input type="password" id="signIn_input-password" class="modal_input" placeholder="Nhập mật khẩu">
+                <span class="form_message"></span>
             </div>
             <div class="input_checkbox">
                 <input type="checkbox" id="signIn_input-confirm">
@@ -73,5 +79,27 @@
         </div>
     </div>
     <script type="text/javascript" src="./assets/script.js"></script>
+    <script>
+        Validation({
+            form: '.modal_signUp',
+            rules: [
+                Validation.isRequired('#signUp_input-username'),
+                Validation.isRequired('#signUp_input-password1'),
+                Validation.isRequired('#signUp_input-password2'),
+                Validation.isEmail('#signUp_input-email'),
+                // Validation.isSamePassword([
+                //     '#signUp_input-password1',
+                //     '#signUp_input-password2'
+                // ])
+            ]
+        })
+        Validation({
+            form: '.modal_signIn',
+            rules: [
+                Validation.isRequired('#signIn_input-username'),
+                Validation.isRequired('#signIn_input-password'),
+            ]
+        })
+    </script>
 </body>
 </html>
